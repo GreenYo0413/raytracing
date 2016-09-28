@@ -2,11 +2,11 @@ EXEC = raytracing
 .PHONY: all
 all: $(EXEC)
 
-CC ?= gcc
+CC = gcc
 CFLAGS = \
-	-std=gnu99 -Wall -O0 -g
+	-std=gnu99 -Wall -O0 -g -mavx -march=native -fopenmp
 LDFLAGS = \
-	-lm
+	-lm -mavx -march=native -fopenmp
 
 ifeq ($(strip $(PROFILE)),1)
 PROF_FLAGS = -pg
